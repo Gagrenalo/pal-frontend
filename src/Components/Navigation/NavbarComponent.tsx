@@ -1,10 +1,5 @@
-import react, {useState} from "react" 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
+import {Link} from "react-router-dom";
 import { LogOrUserComponent } from "./LogOrUserComponent";
 
 interface NavProps {
@@ -13,7 +8,6 @@ interface NavProps {
 }
 export const NavbarComponent = function(props: NavProps) : JSX.Element {
     return (
-         <Router>
             <div id={`navbar ${props.id}-div`} className={`navbar ${props.className}-div`}>
                 <nav id={`navbar ${props.id}`} className={`navbar ${props.className}`}>
                     <ul>
@@ -26,7 +20,7 @@ export const NavbarComponent = function(props: NavProps) : JSX.Element {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/about">News</Link>
+                            <Link to="/news">News</Link>
                         </li>
                          <li className="navbar-item ignore">
                             <img src="/images/header-logo-hover.jpg" id="navbar-logo"></img>
@@ -36,7 +30,7 @@ export const NavbarComponent = function(props: NavProps) : JSX.Element {
                             <Link to="/users">Users</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/users">Register</Link>
+                            <Link to="/register">Register</Link>
                         </li>
 
                          <div id="loginOrUserTab">
@@ -44,7 +38,6 @@ export const NavbarComponent = function(props: NavProps) : JSX.Element {
                         </div>
                     </ul>
                 </nav>
-            </div>
-        </Router> 
+            </div>        
     )
 }

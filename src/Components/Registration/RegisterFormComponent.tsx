@@ -2,6 +2,10 @@
 import React, {useState} from "react"
 import {register} from "../../UserConnection/User"
 
+import {TextField, Typography, Link, Button} from "@material-ui/core"
+// import {Button} from "@material-ui/core"
+// import {Typography, Link} from "@material-ui/core"
+
 const styles = {
     foobar : {
         color: "red",
@@ -13,28 +17,49 @@ export const RegisterFormComponent = function() : JSX.Element {
     const [password, setPass] = useState("");
     const [confirmation, setConf] = useState("");
     const [email, setEmail] = useState(""); 
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement> ): Promise<void> => {
+        e.preventDefault();
+
+        if (validateForm()) {
+            const submitSuccess: boolean = await submitForm();
+            this.setState({ submitSuccess });
+        }
+    };
+
+    const validateForm = function(): boolean {
+        return true;
+    }
+
     return (
-        <div>
-            <form id="card">
-                <p>Username</p>
-                <input onChange={e => setUn(e.target.value)} id="uNameInput" name="username" type="text"/>
+        <div id="formDiv">
+            <form id="registerForm" onSubmit={handleSubmit}>
 
-                <p>Email Address</p>
-                <input onChange={e => setEmail(e.target.value)} id="uEmailInput" name="email" type="email" placeholder="your-email@example.com"/>
+                <TextField onChange = {(e: React.ChangeEvent<HTMLInputElement>) : void => {
+                    setUn(e.target.value);
+                }} id="uUserInput" label="Username" variant="outlined" name="username" type="text"/>
 
-                <p>Password*</p>
-                <input onChange={e => setPass(e.target.value)} id="uPasswordInput" name="password" type="password" placeholder="Your Password"/>
+                <TextField onChange = {(e: React.ChangeEvent<HTMLInputElement>) : void => {
+                    setEmail(e.target.value);
+                }} id="uEmailInput" label="Email" variant="outlined" name="email" type="email"/>
 
-                {/* <p>Retype Password</p>
-                <input onChange={e => setConf(e.target.value)} id="uPasswordValidateInput" name="confirm_password" type="password" placeholder="Your Password"/> */}
 
-                <p id="invalidInputError" style={styles.foobar}></p>
-                <span className="br"></span>  
-                <small>*(Make sure it is at least 8 letters long, and contains one number and one capital letter)</small>
-                
-                <input type="submit" onSubmit = {async (e: React.ChangeEvent<HTMLInputElement>) : Promise<void> => {
-                    await register(username, email, password);
-                }} id="submitButton" value="Submit"/>  
+                <TextField onChange = {(e: React.ChangeEvent<HTMLInputElement>) : void => {
+                    setPass(e.target.value);
+                }} id="uPasswordInput" label="Password" variant="outlined" name="password" type="password" placeholder="*****"/>
+
+                <TextField onChange = {(e: React.ChangeEvent<HTMLInputElement>) : void => {
+                    setConf(e.target.value);
+                }} id="uPasswordConfInput" label="Password Confirmation" variant="outlined" name="password" type="password" placeholder="*****"/>
+
+                <Typography>
+                    <Link href="/register" >
+                        Already have an account? Login.
+                    </Link>
+                </Typography>
+                <Button variant="contained" color="primary">
+                    Register
+                </Button>
             </form>
         </div>
     )

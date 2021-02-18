@@ -4,6 +4,7 @@ import {UserContext} from "../../Context/UserContext"
 import {login} from "../../UserConnection/User"
 import TextField from "@material-ui/core/TextField"
 import {Button} from "@material-ui/core"
+import {Typography, Link} from "@material-ui/core"
 
 export const LoginComponent = function() : JSX.Element {
   
@@ -11,7 +12,7 @@ export const LoginComponent = function() : JSX.Element {
     const [password, setPass] = useState("");
 
     return (
-        <div className="align-center">
+        <div id="loginDiv">
             <h2 className="palHeader2">
                 Logohere PAL 
             </h2>
@@ -26,9 +27,13 @@ export const LoginComponent = function() : JSX.Element {
                     setEmail(e.target.value);
                 }} id="uPasswordInput" label="Password" variant="outlined" name="password" type="text" placeholder="*****"/>
 
-
+                <Typography>
+                    <Link href="/register" >
+                        Don't have an account? Click here to register.
+                    </Link>
+                </Typography>
                 <Button variant="contained" color="primary">
-                    Primary
+                    Login
                 </Button>
             </form>
         </div>

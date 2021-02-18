@@ -6,4 +6,7 @@ type UserType = {
     email?: string,
     token?: string 
 }
-export const UserContext = createContext<UserType | null>(null);
+export const UserContext = createContext<{
+  user: UserType | null,
+  setUser: React.Dispatch<React.SetStateAction<UserType | null>>
+} | null>(null);
