@@ -29,8 +29,13 @@ export const NavbarComponent = function(props: NavProps) : JSX.Element {
                         <li className="navbar-item">
                             <Link to="/users">Users</Link>
                         </li>
+
                         <li className="navbar-item">
                             <Link to="/register">Register</Link>
+                        </li>
+
+                        <li className="navbar-item">
+                            <Link to="/counter">Counter</Link>
                         </li>
 
                          <div id="loginOrUserTab">

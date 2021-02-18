@@ -22,8 +22,8 @@ export const RegisterFormComponent = function() : JSX.Element {
         e.preventDefault();
 
         if (validateForm()) {
-            const submitSuccess: boolean = await submitForm();
-            this.setState({ submitSuccess });
+            // const submitSuccess: boolean = await submitForm();
+            // this.setState({ submitSuccess });
         }
     };
 
