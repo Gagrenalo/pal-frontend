@@ -7,6 +7,7 @@ import {fetchUser} from "../src/UserConnection/User"
 import {UserContext} from "../src/Context/UserContext";
 import { LoginComponent } from './Components/Login/LoginComponent';
 import {BrowserRouter, Switch, Route} from "react-router-dom"
+import {Counter} from "./Components/Navigation/Counter";
 
 function App(): JSX.Element {
 
@@ -26,26 +27,12 @@ function App(): JSX.Element {
               {/* <Route exact path='/home' component={HomeComponent} /> */}
               <Route exact path='/register' component={RegisterFormComponent} />
               <Route exact path='/login' component={LoginComponent} />
+              <Route exact path='/counter' component={Counter} />
             </Switch>
           </div>
         </UserContext.Provider>
       </div>
     </BrowserRouter>
   )
-  
-//   return (
-//     <div className="app">
-//       <UserContext.Provider value={user}>
-//         <header className="mainHeader">
-//           <NavbarComponent id="nav-containerId" className="nav-container"/>
-//         </header>
-
-//         <div className="container">
-//           <LoginComponent/>
-//         </div>
-//       </UserContext.Provider>
-//     </div>
-//   );
-// }
 }
 export default App;
