@@ -38,7 +38,7 @@ export const Counter = function() : JSX.Element {
    }
   },)
 
-
+/*Bruh*/ 
     return (
         <div className = "align-center">
             <h3>
